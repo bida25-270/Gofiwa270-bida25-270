@@ -169,3 +169,27 @@ footer {
   text-align: center;
   padding: 20px;
 }
+
+
+.contact-info {
+  background: #fdf6f0;   /* soft beige */
+  padding: 15px;
+  border-radius: 8px;
+  margin-top: 20px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
+  font-size: 0.95em;
+}
+
+.contact-info h3 {
+  color: #d97b48;        /* warm earthy tone */
+  margin-bottom: 10px;
+}
+
+.contact-info a {
+  color: #d97b48;
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}

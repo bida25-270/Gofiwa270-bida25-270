@@ -4,48 +4,83 @@
   <meta charset="UTF-8">
   <title>Feedback - Earthy Jewelry Shop</title>
   <link rel="stylesheet" href="style.css">
+  <style>
+    /* Fade-in/out animation for the thank-you message */
+    .feedbackMessage {
+      display: none;
+      color: green;
+      opacity: 0;
+      transition: opacity 0.5s ease;
+    }
+    .feedbackMessage.show {
+      display: block;
+      opacity: 1;
+    }
+  </style>
 </head>
 <body>
- <header>
-  <nav class="navbar">
-    <div class="logo">Earthy Jewelry</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="collections.html">Collections</a></li>
-      <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-    </ul>
-  </nav>
-</header>
-
+  <header>
+    <nav class="navbar">
+      <div class="logo">Earthy Jewelry</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="feedback-form">
-  <h2>we would love to hear from you!</h2>
-  <form>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name">
+    <h2>We Value Your Feedback</h2>
+    <form onsubmit="showFeedbackMessage(event, this)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" placeholder="Write your feedback here"></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your feedback here"></textarea>
 
-    <button type="submit" class="btn">Submit</button>
-  </form>
+      <button type="submit" class="btn">Submit</button>
+      <!-- Hidden thank-you message -->
+      <p class="feedbackMessage">Thank you for your feedback!</p>
+    </form>
+    <!-- Extra contact info -->
+  <div class="contact-info">
+    <h3>Contact us also on:</h3>
+    <p>Email: <a href="mailto:info@earthyjewelry.com">info@earthyjewelry.com</a></p>
+    <p>Phone: +267 000 0000</p>
+    <p>Location: Gaborone, Botswana</p>
+  </div>
+  </section>
+
+  <script>
+    function showFeedbackMessage(event, form) {
+      event.preventDefault(); // stop page reload
+
+      let msg = form.querySelector(".feedbackMessage");
+      msg.classList.add("show");
+
+      // Hide again after 2 seconds with fade-out
+      setTimeout(() => {
+        msg.classList.remove("show");
+        msg.style.display = "none";
+      }, 2000);
+
+      // Optional: clear inputs
+      form.querySelector("#name").value = "";
+      form.querySelector("#email").value = "";
+      form.querySelector("#message").value = "";
+    }
+  </script>
 </section>
 
-<section class="contact-info">
-  <h3>Our Contact Details</h3>
-  <p><strong>Email:</strong> hello@earthyjewelry.com</p>
-  <p><strong>Phone:</strong> +267 74 724 448</p>
-  <p><strong>Location:</strong> Botswana</p>
-</section>
-
-<footer>
-  <p>© 2026 Earthy Jewelry Shop</p>
-  <p>Follow us on social media</p>
-</footer>
+  <footer>
+    <p>© 2026 Earthy Jewelry Shop</p>
+    <p>Follow us on social media</p>
+  </footer>
 </body>
 </html>

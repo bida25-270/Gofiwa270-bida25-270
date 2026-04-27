@@ -6,41 +6,58 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
- <header>
-  <nav class="navbar">
-    <div class="logo">Earthy Jewelry</div>
-    <ul class="nav-links">
-      <li><a href="index.html">Home</a></li>
-      <li><a href="about.html">About Us</a></li>
-      <li><a href="collections.html">Collections</a></li>
-      <li><a href="shop.html">Shop</a></li>
-      
-      <li><a href="feedback.html">Feedback</a></li>
-    </ul>
-  </nav>
-</header>
-
+  <header>
+    <nav class="navbar">
+      <div class="logo">Earthy Jewelry</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+      </ul>
+    </nav>
+  </header>
 
   <section class="feedback-form">
-  <h2>We Value Your Feedback</h2>
-  <form>
-    <label for="name">Name</label>
-    <input type="text" id="name" name="name" placeholder="Enter your name">
+    <h2>We Value Your Feedback</h2>
+    <form onsubmit="showFeedbackMessage(event, this)">
+      <label for="name">Name</label>
+      <input type="text" id="name" name="name" placeholder="Enter your name">
 
-    <label for="email">Email</label>
-    <input type="email" id="email" name="email" placeholder="Enter your email">
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email" placeholder="Enter your email">
 
-    <label for="message">Message</label>
-    <textarea id="message" name="message" rows="5" placeholder="Write your feedback here"></textarea>
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" placeholder="Write your feedback here"></textarea>
 
-    <button type="submit" class="btn">Submit</button>
-  </form>
-</section>
+      <button type="submit" class="btn">Submit</button>
+      <!-- Hidden thank-you message -->
+      <p class="feedbackMessage" style="display:none; color:green;">Thank you for your feedback!</p>
+    </form>
+  </section>
 
+  <script>
+    // Quick test to confirm script is running
+    alert("Script is running!");
 
-  <footer>
-    <p>© 2026 Earthy Jewelry Shop</p>
-    <p>Follow us on social media</p>
-  </footer>
+    function showFeedbackMessage(event, form) {
+      event.preventDefault(); // stop page reload
+
+      // Show the thank-you message
+      let msg = form.querySelector(".feedbackMessage");
+      msg.style.display = "block";
+
+      // Hide again after 2 seconds (like Add to Cart)
+      setTimeout(() => {
+        msg.style.display = "none";
+      }, 2000);
+
+      // Optional: clear inputs
+      form.querySelector("#name").value = "";
+      form.querySelector("#email").value = "";
+      form.querySelector("#message").value = "";
+    }
+  </script>
 </body>
 </html>
