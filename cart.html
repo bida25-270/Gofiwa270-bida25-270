@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Cart - Earthy Jewelry Shop</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Earthy Jewelry</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About Us</a></li>
+        <li><a href="collections.html">Collections</a></li>
+        <li><a href="shop.html">Shop</a></li>
+        <li><a href="feedback.html">Feedback</a></li>
+        <li><a href="cart.html">View Cart</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <h2>Your Cart</h2>
+  <div id="emptyMessage" style="display:none;">Your cart is empty.</div>
+  <div id="cartItems"></div>
+
+  <!-- Total price -->
+  <h3 id="totalPrice" style="margin-top:20px;"></h3>
+
+  <!-- Clear Cart button -->
+  <button id="clearCartBtn" style="margin-top:20px; background:red; color:white;">
+    Clear Cart
+  </button>
+
+  <footer>
+    <p>© 2026 Earthy Jewelry Shop</p>
+    <p>Follow us on social media</p>
+  </footer>
+
+  <script>
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
+    let cartContainer = document.getElementById("cartItems");
+    let emptyMessage = document.getElementById("emptyMessage");
+    let totalPriceEl = document.getElementById("totalPrice");
+
+    function renderCart() {
+      cartContainer.innerHTML = "";
+      let total = 0;
+
+      if (cart.length === 0) {
+        emptyMessage.style.display = "block";
+        totalPriceEl.textContent = "";
+      } else {
+        emptyMessage.style.display = "none";
+        cart.forEach(item => {
+          let div = document.createElement("div");
+          div.className = "cart-item";
+          div.innerHTML = `<span>${item.name}</span> - <span>P${item.price}</span>`;
+          cartContainer.appendChild(div);
+
+          total += parseFloat(item.price);
+        });
+        totalPriceEl.textContent = "Total: P" + total;
+      }
+    }
+
+    // Initial render
+    renderCart();
+
+    // Clear cart button logic
+    document.getElementById("clearCartBtn").addEventListener("click", () => {
+      localStorage.removeItem("cart");
+      cart = [];
+      renderCart();
+    });
+  </script>
+</body>
+</html>
+

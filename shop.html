@@ -15,6 +15,7 @@
         <li><a href="collections.html">Collections</a></li>
         <li><a href="shop.html">Shop</a></li>
         <li><a href="contact.html">Feedback</a></li>
+        <li><a href="cart.html">View Cart</a></li>
       </ul>
     </nav>
   </header>
@@ -26,14 +27,14 @@
         <img src="images/gold rings!!!.jpg" alt="Gold Chunky Rings">
         <h3>Gold Chunky Rings</h3>
         <p>P350</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Gold Chunky Rings" data-price="350">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
       </div>
       <div class="product-card">
-        <img src="images/rings with emeraalds.jpg" alt="gold ring set embedded with emeralds">
+        <img src="images/rings with emeraalds.jpg" alt="Gold Rings with Emeralds">
         <h3>Gold Rings with Emeralds</h3>
         <p>P450</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Gold Rings with Emeralds" data-price="450">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
       </div>
     </div>
@@ -46,14 +47,14 @@
         <img src="images/cross necklace.jpg" alt="Beautiful Necklace">
         <h3>Beautiful Necklace</h3>
         <p>P250</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Beautiful Necklace" data-price="250">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
       </div>
       <div class="product-card">
-        <img src="images/cross necklace layered.jpg" alt="A three set Boho Layered Necklace">
+        <img src="images/cross necklace layered.jpg" alt="Boho Layered Necklace">
         <h3>Boho Layered Necklace</h3>
         <p>P250</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Boho Layered Necklace" data-price="250">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
       </div>
     </div>
@@ -63,18 +64,19 @@
     <h2>Bracelets</h2>
     <div class="grid">
       <div class="product-card">
-        <img src="images/bracelets handmade.jpg" alt="Stylish Bracelets">
+        <img src="images/bracelets handmade.jpg" alt="Stylish Bracelet">
         <h3>Stylish Bracelet</h3>
         <p>P200</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Stylish Bracelet" data-price="200">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
       </div>
       <div class="product-card">
-        <img src="images/bracelets + waist beads.jpg" alt="Bracelet set with waist beads">
+        <img src="images/bracelets + waist beads.jpg" alt="Bracelet with Stones">
         <h3>Bracelet with Stones</h3>
         <p>P300</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Bracelet with Stones" data-price="300">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
+      </div>
     </div>
   </section>
 
@@ -82,18 +84,19 @@
     <h2>Earrings</h2>
     <div class="grid">
       <div class="product-card">
-        <img src="images/Acabaram de chegar! 😨✨🌞 _Com o mesmo pingente da choker aro Sol, o brinco Solar chega aqui na Mariselva 🐆.jpg" alt="Stone Drop Earrings">
+        <img src="images/Earcuff.jpg" alt="Stone Drop Earrings">
         <h3>Stone Drop Earrings</h3>
         <p>P300</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Stone Drop Earrings" data-price="300">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
       </div>
       <div class="product-card">
         <img src="images/Eden Stone Earrings Brown.jpg" alt="Eden Stone Earrings">
         <h3>Eden Stone Earrings</h3>
         <p>P350</p>
-        <button onclick="showMessage(this)">Add to Cart</button>
+        <button class="addToCartBtn" data-name="Eden Stone Earrings" data-price="350">Add to Cart</button>
         <p class="cartMessage" style="display:none; color:green;">Item added to cart!</p>
+      </div>
     </div>
   </section>
 
@@ -102,17 +105,27 @@
     <p>Follow us on social media</p>
   </footer>
 
-  <!-- Script at the bottom -->
+  <!-- Cart script -->
   <script>
-    function showMessage(button) {
-      // Find the message right after the button clicked
-      let msg = button.nextElementSibling;
-      msg.style.display = "block";
+    let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-      setTimeout(function() {
-        msg.style.display = "none";
-      }, 2000);
-    }
+    document.querySelectorAll(".addToCartBtn").forEach((btn) => {
+      btn.addEventListener("click", function() {
+        let item = {
+          name: this.dataset.name,
+          price: this.dataset.price
+        };
+        cart.push(item);
+        localStorage.setItem("cart", JSON.stringify(cart));
+
+        // Show "added" message
+        let msg = this.nextElementSibling;
+        msg.style.display = "block";
+        setTimeout(() => { msg.style.display = "none"; }, 2000);
+      });
+    });
   </script>
 </body>
 </html>
+
+
