@@ -1,4 +1,4 @@
-/* Reset & Base */
+/* === RESET & BASE === */
 body {
   margin: 0;
   font-family: 'Georgia', serif;
@@ -7,13 +7,17 @@ body {
   line-height: 1.6;
 }
 
-/* Navbar */
+/* === NAVBAR & FOOTER === */
+.navbar, footer {
+  background-color: #2e4a3b; /* deep earthy green */
+  color: #fdfdfd;
+  padding: 15px 40px;
+}
+
 .navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: #3a5a40; /* deep earthy green */
-  padding: 15px 40px;
 }
 
 .navbar .logo {
@@ -28,28 +32,30 @@ body {
   gap: 20px;
 }
 
-.nav-links li a {
+.nav-links li {
+  display: inline-block;
+}
+
+.nav-links a {
+  color: #fdfdfd;
   text-decoration: none;
-  color: #fff;
   font-weight: 500;
   transition: color 0.3s ease;
 }
 
-.nav-links li a:hover {
+.nav-links a:hover {
+  text-decoration: underline;
   color: #d9f0e1; /* soft green hover */
 }
-.navbar a:link,
-.navbar a:visited {
-  color: white;
-  text-decoration: none;
+
+footer {
+  text-align: center;
 }
 
-
-
-/* Hero Section */
+/* === HERO SECTION (Homepage) === */
 .hero {
   height: 80vh;
-  background: url('images/Original\ Landscape\ Painting\ by\ Zaneta\ Bringel\ _\ Fine\ Art\ Art\ on\ Canvas\ _\ Early\ Bright.jpg') center/cover no-repeat;
+  background: url('images/Original Landscape Painting by Zaneta Bringel _ Fine Art Art on Canvas _ Early Bright.jpg') center/cover no-repeat;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -68,7 +74,7 @@ body {
 }
 
 .btn {
-  background: #3a5a40;
+  background: #2e4a3b;
   color: #fff;
   padding: 12px 24px;
   text-decoration: none;
@@ -80,7 +86,7 @@ body {
   background: #588157; /* lighter earthy green */
 }
 
-/* Sections */
+/* === SECTIONS === */
 section {
   padding: 60px 40px;
   text-align: center;
@@ -93,7 +99,7 @@ section {
   padding: 40px;
 }
 
-/* Product Grid */
+/* === PRODUCT GRID === */
 .grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -113,122 +119,118 @@ section {
   transform: translateY(-5px);
 }
 
-/* Product images in collections */
 .product-card img {
-  width: 250px;       /* equal width */
-  height: 250px;      /* equal height */
-  object-fit: cover;  /* crops neatly without stretching */
-  border-radius: 8px; /* rounded corners */
+  width: 250px;
+  height: 250px;
+  object-fit: cover;
+  border-radius: 8px;
   display: block;
   margin: 0 auto 10px;
 }
 
-.feedback-form {
-  max-width: 600px;
-  margin: 40px auto;
-  padding: 20px;
-  background: #fdfaf6;
-  border-radius: 8px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+/* === CONTACT PAGE === */
+/* Banner section */
+.contact-banner {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+.contact-banner img {
+  width: 100%;
+  height: 350px;
+  object-fit: cover;
+  filter: brightness(70%);
+}
+.contact-title {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.contact-title h1 {
+  font-size: 48px;
+  color: #ffffff;
+}
+.contact-title p {
+  font-size: 18px;
+  color: #f0f0f0;
+  margin-top: 10px;
 }
 
+/* Two-column layout */
+.feedback-container {
+  display: flex;
+  gap: 40px;
+  margin: 40px auto;
+  max-width: 1000px;
+  align-items: flex-start;
+}
+.feedback-form, .contact-info {
+  flex: 1;
+  background: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+/* Form styling */
+.feedback-form h2 {
+  margin-bottom: 15px;
+  color: #000000; /* black */
+}
 .feedback-form label {
   display: block;
   margin: 10px 0 5px;
-  font-weight: bold;
 }
-
 .feedback-form input,
 .feedback-form textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
   border: 1px solid #ccc;
-  border-radius: 4px;
+  border-radius: 5px;
 }
-
-.feedback-form button {
-  background: #3a5a40;
-  color: #fff;
-  padding: 12px 24px;
+.feedback-form .btn {
+  background-color: #2e4a3b; /* deep earthy green */
+  color: white;
+  padding: 10px 20px;
   border: none;
-  border-radius: 4px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background 0.3s ease;
+}
+.feedback-form .btn:hover {
+  background-color: #1f3529;
 }
 
-.feedback-form button:hover {
-  background: #588157;
+/* Thank-you message animation */
+.feedbackMessage {
+  display: none;
+  color: green;
+  font-weight: bold;
+  margin-top: 10px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+.feedbackMessage.show {
+  display: block;
+  opacity: 1;
 }
 
-
-/* Footer */
-footer {
-  background: #3a5a40;
-  color: #fff;
-  text-align: center;
-  padding: 20px;
-}
-
-
-.contact-info {
-  background: #fdf6f0;   /* soft beige */
-  padding: 15px;
-  border-radius: 8px;
-  margin-top: 20px;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-  font-size: 0.95em;
-}
-
+/* Contact info card */
 .contact-info h3 {
-  color: #06471c;        /* warm earthy tone */
+  color: #000000; /* black heading */
   margin-bottom: 10px;
 }
-
 .contact-info a {
-  color: #06512e;
+  color: #2e4a3b; /* deep earthy green links */
   text-decoration: none;
 }
-
 .contact-info a:hover {
   text-decoration: underline;
+  color: #1f3529;
 }
 
-.feedback-container {
-  display: flex;
-  gap: 40px;
-  align-items: flex-start;
-  justify-content: space-between;
-  margin: 40px auto;
-  max-width: 1000px;
-}
-
-.feedback-form, .contact-info {
-  flex: 1;
-  background: #fdfdfd;
-  padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0 0 8px rgba(0,0,0,0.1);
-}
-
-.feedback-form h2, .contact-info h2 {
-  margin-bottom: 15px;
-  color: #073813; /* earthy tone */
-}
-
-.feedback-form button {
-  background: #043215;
-  color: white;
-  padding: 10px 15px;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.feedback-form button:hover {
-  background: #0e5b3a;
-}
-
+/* === ABOUT PAGE === */
 .about-container {
   display: flex;
   gap: 40px;
@@ -237,33 +239,29 @@ footer {
   max-width: 1000px;
   margin: 40px auto;
 }
-
 .about-text {
   flex: 1.2;
 }
-
 .about-image {
   flex: 0.8;
 }
-
 .about-image img {
   width: 100%;
   border-radius: 8px;
   box-shadow: 0 0 8px rgba(0,0,0,0.1);
 }
-/* === CART PAGE STYLES === */
+
+/* === CART PAGE === */
 h1 {
   text-align: center;
   margin-bottom: 20px;
 }
-
 .cart-empty {
   text-align: center;
   font-size: 1.2em;
   color: #777;
   margin-top: 40px;
 }
-
 .cart-item {
   display: flex;
   align-items: center;
@@ -271,74 +269,65 @@ h1 {
   border-bottom: 1px solid #ddd;
   padding-bottom: 10px;
 }
-
 .cart-item img {
-  width: 80px;
-  height: 80px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
   margin-right: 15px;
-  border-radius: 6px;
 }
-
 .cart-details p {
   margin: 4px 0;
 }
-
 #cart-total {
   text-align: right;
   font-weight: bold;
   margin-top: 20px;
 }
-
 button {
   padding: 10px 15px;
   margin: 10px 5px 0 0;
   border: none;
   border-radius: 4px;
-  background-color: #0f4e1a; /* earthy brown tone */
+  background-color: #0f4e1a; /* earthy green tone */
   color: #fff;
   cursor: pointer;
 }
-
 button:hover {
   background-color: #12532b;
 }
 
-/* === CHECKOUT PAGE STYLES === */
+/* === CHECKOUT PAGE === */
 body.checkout {
   display: flex;
   gap: 40px;
   margin: 20px;
 }
-
 .summary, .details {
   flex: 1;
 }
-
 .summary-item {
   display: flex;
   align-items: center;
   margin-bottom: 15px;
 }
-
 .summary-item img {
-  width: 60px;
-  height: 60px;
-  margin-right: 10px;
-  border-radius: 6px;
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 8px;
+  margin-right: 15px;
 }
-
 .total {
   font-weight: bold;
   margin-top: 20px;
   text-align: right;
 }
-
 form label {
   display: block;
   margin-top: 10px;
   font-weight: bold;
 }
-
 form input, form textarea, form select {
   width: 100%;
   margin-top: 5px;
@@ -347,10 +336,22 @@ form input, form textarea, form select {
   border: 1px solid #ccc;
   border-radius: 4px;
 }
-
 #confirmation {
   margin-top: 20px;
   font-size: 1.2em;
   color: green;
   text-align: center;
 }
+
+/* === RESPONSIVE DESIGN === */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #333;
+  margin: 4px 0;
+  border-radius: 2px;

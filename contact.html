@@ -2,47 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Feedback - Earthy Jewelry Shop</title>
+  <title>Contact - Earthy Jewelry Shop</title>
   <link rel="stylesheet" href="style.css">
-  <style>
-    /* Layout for two columns */
-    .feedback-container {
-      display: flex;
-      gap: 40px;
-      margin: 20px;
-    }
-    .feedback-form, .contact-info {
-      flex: 1;
-    }
-
-    /* Thank-you message animation */
-    .feedbackMessage {
-      display: none;
-      color: green;
-      font-weight: bold;
-      margin-top: 10px;
-      opacity: 0;
-      transition: opacity 0.5s ease-in-out;
-    }
-    .feedbackMessage.show {
-      display: block;
-      opacity: 1;
-    }
-
-    /* Contact info styling */
-    .contact-info p {
-      margin: 8px 0;
-    }
-    .contact-info a {
-      color: #8b5e3c; /* earthy tone */
-      text-decoration: none;
-    }
-    .contact-info a:hover {
-      text-decoration: underline;
-    }
-  </style>
 </head>
 <body>
+  <!-- Header -->
   <header>
     <nav class="navbar">
       <div class="logo">Earthy Jewelry</div>
@@ -51,31 +15,34 @@
         <li><a href="about.html">About Us</a></li>
         <li><a href="collections.html">Collections</a></li>
         <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Feedback</a></li>
+        <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
 
-  <section class="feedback-header">
-    <h1>Get in Touch With Us</h1>
-    <p>We’d love to hear your thoughts, questions, or suggestions. 
-       Whether it’s feedback on our jewelry or general inquiries, 
-       we’re here to help.</p>
+  <!-- Banner -->
+  <section class="contact-banner">
+    <img src="images/@latinarab.jpg" alt="Jewelry display banner">
+    <div class="contact-title">
+      <h1>Contact Us</h1>
+      <p>We would love to hear your questions, thoughts, or suggestions.</p>
+    </div>
   </section>
 
+  <!-- Main content -->
   <section class="feedback-container">
     <!-- Left side: Feedback form -->
     <div class="feedback-form">
       <h2>We Value Your Feedback</h2>
       <form onsubmit="showFeedbackMessage(event)">
         <label for="name">Name</label>
-        <input type="text" id="name" name="name" placeholder="Enter your name">
+        <input type="text" id="name" name="name" placeholder="Enter your name" required>
 
         <label for="email">Email</label>
-        <input type="email" id="email" name="email" placeholder="Enter your email">
+        <input type="email" id="email" name="email" placeholder="Enter your email" required>
 
         <label for="message">Message</label>
-        <textarea id="message" name="message" rows="5" placeholder="Write your feedback here"></textarea>
+        <textarea id="message" name="message" rows="5" placeholder="Write your feedback here" required></textarea>
 
         <button type="submit" class="btn">Submit</button>
         <p class="feedbackMessage" id="feedbackMessage">Thank you for your feedback!</p>
@@ -84,30 +51,27 @@
 
     <!-- Right side: Contact info -->
     <div class="contact-info">
-      <h2>Contact Us Also</h2>
+      <h3>Contact Us Also</h3>
       <p>📧 Email: <a href="mailto:info@earthyjewelry.com">info@earthyjewelry.com</a></p>
       <p>📞 Phone: +267 000 0000</p>
       <p>📍 Location: Gaborone, Botswana</p>
       <p>📸 Instagram: <a href="#">@earthyjewelry</a></p>
-      <p>💬 WhatsApp: +267 000 0000</p>
     </div>
   </section>
 
+  <!-- Footer (unchanged) -->
   <footer>
-    <p>© 2026 Earthy Jewelry Shop</p>
-    <p>Follow us on social media</p>
+    <p>&copy; 2026 Earthy Jewelry Shop. All rights reserved.</p>
   </footer>
 
+  <!-- JS Alert -->
   <script>
     function showFeedbackMessage(event) {
       event.preventDefault();
-      document.getElementById("feedbackMessage").classList.add("show");
-
-      // Clear inputs
-      document.getElementById("name").value = "";
-      document.getElementById("email").value = "";
-      document.getElementById("message").value = "";
+      const msg = document.getElementById("feedbackMessage");
+      msg.classList.add("show");
     }
   </script>
 </body>
 </html>
+
