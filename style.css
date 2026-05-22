@@ -18,6 +18,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: relative;
 }
 
 .navbar .logo {
@@ -129,33 +130,40 @@ section {
 }
 
 /* === CONTACT PAGE === */
-/* Banner section */
+/* Nav fix */
+.navbar {
+  position: relative;
+  z-index: 1000;   /* nav always above banner */
+}
+
+.nav-links {
+  z-index: 1000;   /* dropdown above banner */
+}
+
+/* Banner stays behind nav */
 .contact-banner {
   position: relative;
   text-align: center;
   color: white;
 }
+
 .contact-banner img {
   width: 100%;
   height: 350px;
   object-fit: cover;
   filter: brightness(70%);
+  position: relative;
+  z-index: 1;      /* lower than nav */
 }
+
 .contact-title {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 2;      /* text stays above image */
 }
-.contact-title h1 {
-  font-size: 48px;
-  color: #ffffff;
-}
-.contact-title p {
-  font-size: 18px;
-  color: #f0f0f0;
-  margin-top: 10px;
-}
+
 
 /* Two-column layout */
 .feedback-container {
@@ -343,15 +351,59 @@ form input, form textarea, form select {
   text-align: center;
 }
 
-/* === RESPONSIVE DESIGN === */
+/* Default desktop nav */
+.nav-links {
+  display: flex;
+  list-style: none;
+  gap: 20px;
+}
+
+/* Hide hamburger on desktop */
 .hamburger {
   display: none;
-  flex-direction: column;
-  cursor: pointer;
 }
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: #333;
-  margin: 4px 0;
-  border-radius: 2px;
+
+/* Mobile styles */
+@media (max-width: 768px) {
+
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    height: 3px;
+    width: 25px;
+    background: #fff;
+    margin: 4px 0;
+    border-radius: 2px;
+  }
+
+  .nav-links {
+  display: none;
+  flex-direction: column;
+  background: #2e4a3b;
+  position: absolute;
+  top: 70px;
+  right: 20px;
+  width: 200px;
+  padding: 15px;
+  border-radius: 8px;
+}
+  
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav-links li {
+    margin: 10px 0;
+  }
+
+  .nav-links a {
+    color: #333;
+    text-decoration: none;
+    font-size: 18px;
+  }
+}

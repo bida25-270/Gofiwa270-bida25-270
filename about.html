@@ -2,26 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>About Us - Earthy Jewelry Shop</title>
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <header>
-    <nav class="navbar">
-      <div class="logo">Earthy Jewelry</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="collections.html">Collections</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Feedback</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
-    </nav>
-  </header>
+
+    <!-- Navigation -->
+  <nav class="navbar">
+  <div class="logo">Earthy Jewelry</div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Feedback</a></li>
+  </ul>
+</nav>
+  
 
   <section class="about-container">
     <!-- Left side: your existing text -->
@@ -52,5 +58,6 @@
     <p>© 2026 Earthy Jewelry Shop</p>
     <p>Follow us on social media</p>
   </footer>
+  <script src="script.js"></script>
 </body>
 </html>

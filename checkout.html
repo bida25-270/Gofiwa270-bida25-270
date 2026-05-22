@@ -29,35 +29,6 @@
     <div id="confirmation"></div>
   </div>
 
-  <script>
-    const summary = document.getElementById('order-summary');
-    const totalDiv = document.getElementById('order-total');
-    const cart = JSON.parse(localStorage.getItem('cart')) || [];
-
-    let total = 0;
-    cart.forEach(item => {
-      const subtotal = item.price * item.quantity;
-      total += subtotal;
-      summary.innerHTML += `
-        <div class="summary-item">
-          <img src="${item.image}" alt="${item.name}">
-          <div>
-            <p>${item.name}</p>
-            <p>Qty: ${item.quantity}</p>
-            <p>Subtotal: P${subtotal}</p>
-          </div>
-        </div>
-      `;
-    });
-    totalDiv.textContent = 'Total: P' + total.toFixed(2);
-
-    document.getElementById('checkout-form').onsubmit = (e) => {
-      e.preventDefault();
-      localStorage.removeItem('cart');
-      summary.innerHTML = '';
-      totalDiv.textContent = '';
-      document.getElementById('confirmation').textContent = 'Thank you! Your order has been placed.';
-    };
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>

@@ -7,20 +7,24 @@
 </head>
 <body>
   <header>
-    <nav class="navbar">
-      <div class="logo">Earthy Jewelry</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="collections.html">Collections</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Feedback</a></li>
-        <li><a href="cart.html">View Cart</a></li>
-      </ul>
-      <div class="hamburger" onclick="toggleMenu()">
-        <span></span>
-        <span></span>
-        <span></span>
+      <!-- Navigation -->
+  <nav class="navbar">
+  <div class="logo">Earthy Jewelry</div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Feedback</a></li>
+  </ul>
     </nav>
   </header>
 
@@ -112,38 +116,7 @@
     <p>© 2026 Earthy Jewelry Shop</p>
     <p>Follow us on social media</p>
   </footer>
+  <script src="script.js"></script>
 
-  <!-- Cart script -->
-  <script>
-    document.querySelectorAll(".addToCartBtn").forEach((btn) => {
-      btn.addEventListener("click", function() {
-        // Always reload cart fresh from localStorage
-        let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-        let productCard = this.closest(".product-card");
-        let imgElement = productCard.querySelector("img");
-
-        // Check if item already exists in cart
-        let existingItem = cart.find(i => i.name === this.dataset.name);
-
-        if (existingItem) {
-          existingItem.quantity += 1; // increase quantity
-        } else {
-          cart.push({
-            name: this.dataset.name,
-            price: parseFloat(this.dataset.price),
-            image: imgElement.getAttribute("src"),
-            quantity: 1
-          });
-        }
-
-        localStorage.setItem("cart", JSON.stringify(cart));
-
-        let msg = this.nextElementSibling;
-        msg.style.display = "block";
-        setTimeout(() => { msg.style.display = "none"; }, 2000);
-      });
-    });
-  </script>
 </body>
 </html>

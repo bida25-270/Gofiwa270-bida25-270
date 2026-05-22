@@ -8,15 +8,24 @@
 <body>
   <!-- Header -->
   <header>
-    <nav class="navbar">
-      <div class="logo">Earthy Jewelry</div>
-      <ul class="nav-links">
-        <li><a href="index.html">Home</a></li>
-        <li><a href="about.html">About Us</a></li>
-        <li><a href="collections.html">Collections</a></li>
-        <li><a href="shop.html">Shop</a></li>
-        <li><a href="contact.html">Contact</a></li>
-      </ul>
+      <!-- Navigation -->
+  <nav class="navbar">
+  <div class="logo">Earthy Jewelry</div>
+
+  <!-- Hamburger -->
+  <div class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </div>
+
+  <!-- Navigation Links -->
+  <ul class="nav-links" id="navLinks">
+    <li><a href="index.html">Home</a></li>
+    <li><a href="about.html">About</a></li>
+    <li><a href="shop.html">Shop</a></li>
+    <li><a href="contact.html">Feedback</a></li>
+  </ul>
     </nav>
   </header>
 
@@ -63,15 +72,7 @@
   <footer>
     <p>&copy; 2026 Earthy Jewelry Shop. All rights reserved.</p>
   </footer>
-
-  <!-- JS Alert -->
-  <script>
-    function showFeedbackMessage(event) {
-      event.preventDefault();
-      const msg = document.getElementById("feedbackMessage");
-      msg.classList.add("show");
-    }
-  </script>
+  <script src="script.js"></script>
 </body>
 </html>
 
