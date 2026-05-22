@@ -128,6 +128,43 @@ section {
   display: block;
   margin: 0 auto 10px;
 }
+/* About Us section layout */
+.about-section {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+  padding: 20px;
+}
+
+/* Image styling */
+.about-section img {
+  max-width: 300px;
+  border-radius: 8px;
+}
+
+/* Text styling */
+.about-text {
+  flex: 1;
+}
+
+/* Mobile fix */
+@media (max-width: 768px) {
+  .about-section {
+    flex-direction: column;   /* stack vertically */
+    text-align: center;       /* center text */
+  }
+
+  .about-section img {
+    max-width: 100%;          /* full width on mobile */
+    margin-bottom: 15px;      /* spacing below image */
+  }
+
+  .about-text {
+    text-align: center;
+  }
+}
+
 
 /* === CONTACT PAGE === */
 /* Nav fix */
